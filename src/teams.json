@@ -1,0 +1,163 @@
+[
+  {
+    "id": 0,
+    "team": "Giants",
+    "url": "https://www.giants.com"
+  },
+
+  {
+    "id": 1,
+    "team": "Cowboys",
+    "url": "https://www.dallascowboys.com"
+  },
+  {
+    "id": 2,
+    "team": "redskins",
+    "url": "https://www.redskins.com"
+  },
+  {
+    "id": 3,
+    "team": "Eagles",
+    "url": "https://www.philadelphiaeagles.com"
+  },
+  {
+    "id": 4,
+    "team": "Jets",
+    "url": "https://www.nyjets.com"
+  },
+  {
+    "id": 5,
+    "team": "Patriots",
+    "url": "https://www.Patriots.com"
+  },
+  {
+    "id": 6,
+    "team": "Bills",
+    "url": "https://www.buffalobills.com"
+  },
+  {
+    "id": 7,
+    "team": "Dolphins",
+    "url": "https://www.miamidolphins.com"
+  },
+  {
+    "id": 8,
+    "team": "Texans",
+    "url": "https://www.houstontexans.com"
+  },
+  {
+    "id": 9,
+    "team": "Titans",
+    "url": "https://www.titansonline.com"
+  },
+  {
+    "id": 10,
+    "team": "Jaguars",
+    "url": "https://www.jaguars.com"
+  },
+  {
+    "id": 11,
+    "team": "Colts",
+    "url": "https://www.colts.com"
+  },
+  {
+    "id": 12,
+    "team": "Saints",
+    "url": "https://www.neworleanssaints.com"
+  },
+  {
+    "id": 13,
+    "team": "Buccaneers",
+    "url": "https://www.buccaneers.com"
+  },
+  {
+    "id": 14,
+    "team": "Panthers",
+    "url": "https://www.panthers.com"
+  },
+  {
+    "id": 15,
+    "team": "Falcons",
+    "url": "https://www.atlantafalcons.com"
+  },
+  {
+    "id": 16,
+    "team": "Bears",
+    "url": "https://www.chicagobears.com"
+  },
+  {
+    "id": 17,
+    "team": "Packers",
+    "url": "https://www.packers.com"
+  },
+  {
+    "id": 18,
+    "team": "Vikings",
+    "url": "https://www.vikings.com"
+  },
+  {
+    "id": 19,
+    "team": "Lions",
+    "url": "https://www.detroitlions.com"
+  },
+  {
+    "id": 20,
+    "team": "Ravens",
+    "url": "https://www.baltimoreravens.com"
+  },
+  {
+    "id": 21,
+    "team": "Steelers",
+    "url": "https://www.steelers.com"
+  },
+  {
+    "id": 22,
+    "team": "Bengals",
+    "url": "https://www.bengals.com"
+  },
+  {
+    "id": 23,
+    "team": "Browns",
+    "url": "https://www.clevelandbrowns.com"
+  },
+  {
+    "id": 24,
+    "team": "Rams",
+    "url": "https://www.therams.com"
+  },
+  {
+    "id": 25,
+    "team": "Cardinals",
+    "url": "https://www.azcardinals.com"
+  },
+  {
+    "id": 26,
+    "team": "Seahawks",
+    "url": "https://www.seahawks.com"
+  },
+  {
+    "id": 27,
+    "team": "49ers",
+    "url": "https://www.49ers.com"
+  },
+  {
+    "id": 28,
+    "team": "Chargers",
+    "url": "https://www.chargers.com"
+  },
+  {
+    "id": 29,
+    "team": "Chiefs",
+    "url": "https://www.chiefs.com"
+  },
+  {
+    "id": 30,
+    "team": "Raiders",
+    "url": "https://www.raiders.com"
+  },
+  {
+    "id": 31,
+    "team": "Broncos",
+    "url": "https://www.denverbroncos.com"
+  }
+]
