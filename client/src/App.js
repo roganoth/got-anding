@@ -36,6 +36,9 @@ class App extends Component {
     ],
 
     picker = () => {
+      let players = this.state.players;
+      let playerOrder = this.state.playerOrder;
+
       for (let i = 0; i < players.length; i++) {
         let j = Math.floor(Math.random() * i + 1);
         [players[i], players[j]] = [players[j], players[i]];
@@ -47,6 +50,9 @@ class App extends Component {
       playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
       console.log("----------------------------------------------------");
       console.log(playerOrder);
+      this.setState({
+        playerOrder = playerOrder
+      })
     }
 
   }
