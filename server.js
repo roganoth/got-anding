@@ -4,6 +4,8 @@ const logger = require("morgan");
 const path = require("path");
 const axios = require("axios");
 const cheerio = require("cheerio");
+require("dotenv").config();
+const keys = require("./config/keys.js");
 
 const app = express();
 
@@ -60,7 +62,37 @@ app.get("/scrape", function(req, res) {
     });
   });
 
-  res.sendFile(path.join(__dirname + "/public/html/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
+});
+
+app.get("/draft", function(req, res) {
+  axios
+    .get(
+      "https://www.fantasyfootballnerd.com/service/draft-rankings/json/" +
+        keys.keys.API_Key
+    )
+    .then(function(data) {
+      const players = data.data;
+      console.log(players);
+      res.send(players);
+      players.each(element => {
+        db.rankings.insert(
+          {
+            name: players.displayName,
+            position: players.position,
+            team: players.team,
+            rank: players.overallRanking
+          },
+          function(err, inserted) {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(inserted);
+            }
+          }
+        );
+      });
+    });
 });
 
 app.listen(3000, function() {
