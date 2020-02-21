@@ -1,22 +1,23 @@
-var express = require("express");
-var mongojs = require("mongojs");
-var logger = require("morgan");
-var path = require("path");
-var axios = require("axios");
+const express = require("express");
+const mongojs = require("mongojs");
+const logger = require("morgan");
+const path = require("path");
+const axios = require("axios");
+const cheerio = require("cheerio");
 require("dotenv").config();
 const keys = require("./config/keys.js");
 
-var app = express();
+const app = express();
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-var databaseUrl = "news";
-var collections = ["articles", "comments", "rankings"];
+const databaseUrl = "news";
+const collections = ["title", "link"];
 
-var db = mongojs(databaseUrl, collections);
+const db = mongojs(databaseUrl, collections);
 
 db.on("error", function(error) {
   console.log("Database Error:", error);
@@ -32,15 +33,15 @@ app.get("/all", function(req, res) {
   });
 });
 
-app.get("/", function(req, res) {
-  axios.get("https://www.nytimes.com/").then(function(response) {
-    var $ = cheerio.load(response.data);
-    $("").each(function(i, element) {
-      var title = $(element)
-        .children()
+app.get("/scrape", function(req, res) {
+  axios.get("https://www.giants.com/").then(function(response) {
+    const $ = cheerio.load(response.data);
+    $(".nfl-o-headlinestack__itemcontent").each(function(i, element) {
+      const title = $(element)
+        .children("a")
         .text();
-      var link = $(element)
-        .children()
+      const link = $(element)
+        .children("a")
         .attr("href");
 
       if (title && link) {
@@ -61,7 +62,7 @@ app.get("/", function(req, res) {
     });
   });
 
-  res.sendFile(path.join(__dirname + "/public/html/index.html"));
+  res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
 app.get("/draft", function(req, res) {
@@ -74,7 +75,7 @@ app.get("/draft", function(req, res) {
       const players = data.data;
       console.log(players);
       res.send(players);
-      players.forEach(element => {
+      players.each(element => {
         db.rankings.insert(
           {
             name: players.displayName,
