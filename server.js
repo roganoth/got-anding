@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-const databaseUrl = "news";
+const databaseUrl = "ffb";
 const collections = ["title", "link"];
 
 const db = mongojs(databaseUrl, collections);
@@ -72,16 +72,21 @@ app.get("/draft", function(req, res) {
         keys.keys.API_Key
     )
     .then(function(data) {
-      const players = data.data;
+      const players = data.data.DraftRankings;
       console.log(players);
       res.send(players);
-      players.each(element => {
+      // players.forEach(element => {
+      for (let i = 0; i < players.length; i++) {
+        const name = players[i].displayName;
+        const position = players[i].position;
+        const team = players[i].team;
+        const rank = players[i].overallRank;
         db.rankings.insert(
           {
-            name: players.displayName,
-            position: players.position,
-            team: players.team,
-            rank: players.overallRanking
+            name: name,
+            position: position,
+            team: team,
+            rank: rank
           },
           function(err, inserted) {
             if (err) {
@@ -91,8 +96,9 @@ app.get("/draft", function(req, res) {
             }
           }
         );
-      });
+      }
     });
+  // });
 });
 
 app.listen(3000, function() {
