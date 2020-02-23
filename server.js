@@ -86,7 +86,8 @@ app.get("/draft", function(req, res) {
             name: name,
             position: position,
             team: team,
-            rank: rank
+            rank: rank,
+            selected: false
           },
           function(err, inserted) {
             if (err) {
