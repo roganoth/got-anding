@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import PlayerCard from "./components/PlayerCard";
-import ShuffleButton from "./components/ShuffleButton";
-import Wrapper from "./components/Wrapper";
-import { Col, Row, Container } from "../components/Grid";
+import PlayerCard from "../PlayerCard";
+import ShuffleButton from "../ShuffleButton";
+import Wrapper from "../Wrapper";
+import { Col, Row, Container } from "../Grid";
 
 class Draft extends Component {
   state = {
@@ -57,15 +57,25 @@ class Draft extends Component {
       });
     },
 
+    componentDidMount() {
+      this.loadPlayers();
+    },
+
+    loadPlayers: () => {
+      API.getPlayers()
+        .then(res => this.setState({ players: res.data }))
+        .catch(err => console.log(err));
+    },
+
     teamMaker: () => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
       if (teamPlayers[random].selected == false) {
         teamPlayers[random].selected = true;
         // console.log(array[random]);
-        selected.push(teamPlayers[random]);
+        // selected.push(teamPlayers[random]);
       } else {
-        teamMaker();
+        this.teamMaker();
       }
     },
 
@@ -86,22 +96,11 @@ class Draft extends Component {
             playerNumber={order.playerNumber}
             orderNumber={order.orderNumber}
           />
-          <Draft />
         ))}
         <ShuffleButton picker={this.state.picker} />
       </Wrapper>
     );
-  };
-
-  componentDidMount() {
-    this.loadPlayers();
   }
-
-  loadPlayers = () => {
-    API.getPlayers()
-      .then(res => this.setState({ players: res.data }))
-      .catch(err => console.log(err));
-  };
 }
 
 export default Draft;
