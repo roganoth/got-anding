@@ -4,7 +4,7 @@ export default {
     getPlayers: function() {
         return axios.get("/api/players");
     },
-    updatePlayer: function() {
+    updatePlayers: function() {
         return axios.update("/api/players" + id);
     }
 }
