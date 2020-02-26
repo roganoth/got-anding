@@ -4,9 +4,30 @@ import React, { Component } from "react";
 import PlayerCard from "./components/PlayerCard";
 import ShuffleButton from "./components/ShuffleButton";
 import Wrapper from "./components/Wrapper";
+import fire from "./Fire";
+import Login from "./Login";
+import Home from "./Home";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
+  componentDidMount() {
+    this.authListener();
+  }
+  authListener() {
+    fire.auth().onAuthStateChanged(user => {
+      // console.log(user);
+      if (user) {
+        this.setState({ user });
+        // localStorage.removeItem ('user, user.uid');
+      } else {
+        // localStorage.removeItem("user");
+        this.setState({ user: null });
+      }
+    });
+  }
+
   state = {
+    user: {},
     players: [1, 2, 3, 4, 5, 6],
     playerOrder: [
       {
@@ -59,6 +80,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+        <div className="App">{this.state.user ? <Home /> : <Login />}</div>
         {this.state.playerOrder.map(order => (
           <PlayerCard
             playerNumber={order.playerNumber}
