@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 // import "./App.css";
 // import teams from "./teams.json";
 import Draft from "./components/pages/Draft";
-import Navbar from "./components/Navbar";
+import MenuAppBar from "./components/navbar/index";
+import BackToTop from "./components/NflPlayers/index";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <Fragment>
+      <MenuAppBar />
+      <BackToTop />
       <Draft />
-    </div>
+    </Fragment>
   );
 }
 export default App;
