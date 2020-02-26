@@ -3,7 +3,7 @@ import API from "../utils/API";
 import PlayerCard from "../PlayerCard";
 import ShuffleButton from "../ShuffleButton";
 import Wrapper from "../Wrapper";
-import { Col, Row, Container } from "../Grid";
+// import { Col, Row, Container } from "../Grid";
 
 class Draft extends Component {
   state = {
@@ -70,7 +70,7 @@ class Draft extends Component {
     teamMaker: () => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
-      if (teamPlayers[random].selected == false) {
+      if (teamPlayers[random].selected === false) {
         teamPlayers[random].selected = true;
         // console.log(array[random]);
         // selected.push(teamPlayers[random]);
@@ -81,7 +81,7 @@ class Draft extends Component {
 
     playerTeamJoin: event => {
       let userTeam = this.state.userTeam;
-      if (event.target.selected == false) {
+      if (event.target.selected === false) {
         event.target.selected = true;
         userTeam.push(event.target);
       }
