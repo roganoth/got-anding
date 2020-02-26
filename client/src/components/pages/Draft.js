@@ -4,6 +4,7 @@ import PlayerCard from "../PlayerCard";
 import ShuffleButton from "../ShuffleButton";
 import Wrapper from "../Wrapper";
 import { Col, Row, Container } from "../Grid";
+import TempGrid from "../TempGrid";
 
 class Draft extends Component {
   state = {
@@ -52,6 +53,7 @@ class Draft extends Component {
       playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
       console.log("----------------------------------------------------");
       console.log(playerOrder);
+      console.log(this.state.teamPlayers);
       this.setState({
         playerOrder: playerOrder
       });
@@ -63,8 +65,9 @@ class Draft extends Component {
 
     loadPlayers: () => {
       API.getPlayers()
-        .then(res => this.setState({ players: res.data }))
+        .then(res => this.setState({ teamPlayers: res.data }))
         .catch(err => console.log(err));
+      console.log(this.teamPlayers);
     },
 
     teamMaker: () => {
@@ -93,8 +96,19 @@ class Draft extends Component {
       <Wrapper>
         {this.state.playerOrder.map(order => (
           <PlayerCard
+            key={order.playerNumber}
             playerNumber={order.playerNumber}
             orderNumber={order.orderNumber}
+          />
+        ))}
+        {this.state.loadPlayers()}
+        {this.state.teamPlayers.map(choices => (
+          <TempGrid
+            name={choices.name}
+            position={choices.position}
+            team={choices.team}
+            rank={choices.rank}
+            choose={this.state.playerTeamJoin}
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
