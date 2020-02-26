@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Draft from "./components/pages/Draft";
 import Navbar from "./components/Navbar";
 // import "./App.css";
@@ -8,6 +8,8 @@ import fire from "./Fire";
 import Login from "./Login";
 import Home from "./Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MenuAppBar from "./components/navbar/index";
+import BackToTop from "./components/NflPlayers/index";
 
 class App extends Component {
   componentDidMount() {
@@ -34,8 +36,11 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
-          <Navbar />
-          <Draft />
+          <Fragment>
+            <MenuAppBar />
+            <BackToTop />
+            <Draft />
+          </Fragment>
         </div>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
       </Wrapper>
