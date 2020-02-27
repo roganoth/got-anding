@@ -68,7 +68,7 @@ app.get("/scrape", function(req, res) {
 app.get("/draft", function(req, res) {
   axios
     .get(
-      "https://www.fantasyfootballnerd.com/service/draft-rankings/json/" +
+      "https://www.fantasyfootballnerd.com/service/draft-rankings/json/8f5fyberwf32" +
         keys.keys.API_Key
     )
     .then(function(data) {
