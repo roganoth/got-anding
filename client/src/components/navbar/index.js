@@ -37,6 +37,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             NFL Mock Draft
           </Typography>
+          <Button color="inherit">Select-a-Team</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

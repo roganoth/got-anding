@@ -1,165 +1,195 @@
-
 [
   {
     "id": 0,
     "team": "Giants",
-    "url": "https://www.giants.com"
+    "url": "https://www.giants.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/NYG.svg"
   },
 
   {
     "id": 1,
     "team": "Cowboys",
-    "url": "https://www.dallascowboys.com"
+    "url": "https://www.dallascowboys.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/DAL.svg"
   },
   {
     "id": 2,
     "team": "redskins",
-    "url": "https://www.redskins.com"
+    "url": "https://www.redskins.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/WAS.svg"
   },
   {
     "id": 3,
     "team": "Eagles",
-    "url": "https://www.philadelphiaeagles.com"
+    "url": "https://www.philadelphiaeagles.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/PHI.svg"
   },
   {
     "id": 4,
     "team": "Jets",
-    "url": "https://www.nyjets.com"
+    "url": "https://www.nyjets.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/NYJ.svg"
   },
   {
     "id": 5,
     "team": "Patriots",
-    "url": "https://www.Patriots.com"
+    "url": "https://www.Patriots.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/NE.svg"
   },
   {
     "id": 6,
     "team": "Bills",
-    "url": "https://www.buffalobills.com"
+    "url": "https://www.buffalobills.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/BUF.svg"
   },
   {
     "id": 7,
     "team": "Dolphins",
-    "url": "https://www.miamidolphins.com"
+    "url": "https://www.miamidolphins.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/MIA.svg"
   },
   {
     "id": 8,
     "team": "Texans",
-    "url": "https://www.houstontexans.com"
+    "url": "https://www.houstontexans.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/HOU.svg"
   },
   {
     "id": 9,
     "team": "Titans",
-    "url": "https://www.titansonline.com"
+    "url": "https://www.titansonline.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/TEN.svg"
   },
   {
     "id": 10,
     "team": "Jaguars",
-    "url": "https://www.jaguars.com"
+    "url": "https://www.jaguars.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/JAX.svg"
   },
   {
     "id": 11,
     "team": "Colts",
-    "url": "https://www.colts.com"
+    "url": "https://www.colts.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/IND.svg"
   },
   {
     "id": 12,
     "team": "Saints",
-    "url": "https://www.neworleanssaints.com"
+    "url": "https://www.neworleanssaints.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/NO.svg"
   },
   {
     "id": 13,
     "team": "Buccaneers",
-    "url": "https://www.buccaneers.com"
+    "url": "https://www.buccaneers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/TB.svg"
   },
   {
     "id": 14,
     "team": "Panthers",
-    "url": "https://www.panthers.com"
+    "url": "https://www.panthers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/CAR.svg"
   },
   {
     "id": 15,
     "team": "Falcons",
-    "url": "https://www.atlantafalcons.com"
+    "url": "https://www.atlantafalcons.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/ATL.svg"
   },
   {
     "id": 16,
     "team": "Bears",
-    "url": "https://www.chicagobears.com"
+    "url": "https://www.chicagobears.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/CHI.svg"
   },
   {
     "id": 17,
     "team": "Packers",
-    "url": "https://www.packers.com"
+    "url": "https://www.packers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/GB.svg"
   },
   {
     "id": 18,
     "team": "Vikings",
-    "url": "https://www.vikings.com"
+    "url": "https://www.vikings.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/MIN.svg"
   },
   {
     "id": 19,
     "team": "Lions",
-    "url": "https://www.detroitlions.com"
+    "url": "https://www.detroitlions.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/DET.svg"
   },
   {
     "id": 20,
     "team": "Ravens",
-    "url": "https://www.baltimoreravens.com"
+    "url": "https://www.baltimoreravens.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/BAL.svg"
   },
   {
     "id": 21,
     "team": "Steelers",
-    "url": "https://www.steelers.com"
+    "url": "https://www.steelers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/PIT.svg"
   },
   {
     "id": 22,
     "team": "Bengals",
-    "url": "https://www.bengals.com"
+    "url": "https://www.bengals.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/CIN.svg"
   },
   {
     "id": 23,
     "team": "Browns",
-    "url": "https://www.clevelandbrowns.com"
+    "url": "https://www.clevelandbrowns.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/CLE.svg"
   },
   {
     "id": 24,
     "team": "Rams",
-    "url": "https://www.therams.com"
+    "url": "https://www.therams.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/LA.svg"
   },
   {
     "id": 25,
     "team": "Cardinals",
-    "url": "https://www.azcardinals.com"
+    "url": "https://www.azcardinals.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/ARI.svg"
   },
   {
     "id": 26,
     "team": "Seahawks",
-    "url": "https://www.seahawks.com"
+    "url": "https://www.seahawks.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/SEA.svg"
   },
   {
     "id": 27,
     "team": "49ers",
-    "url": "https://www.49ers.com"
+    "url": "https://www.49ers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/SF.svg"
   },
   {
     "id": 28,
     "team": "Chargers",
-    "url": "https://www.chargers.com"
+    "url": "https://www.chargers.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/LAC.svg"
   },
   {
     "id": 29,
     "team": "Chiefs",
-    "url": "https://www.chiefs.com"
+    "url": "https://www.chiefs.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/KC.svg"
   },
   {
     "id": 30,
     "team": "Raiders",
-    "url": "https://www.raiders.com"
+    "url": "https://www.raiders.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/OAK.svg"
   },
   {
     "id": 31,
     "team": "Broncos",
-    "url": "https://www.denverbroncos.com"
+    "url": "https://www.denverbroncos.com",
+    "image": "https://static.nfl.com/static/content/public/static/wildcat/assets/img/logos/teams/DEN.svg"
   }
 ]
-
