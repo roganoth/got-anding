@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Draft from "./components/pages/Draft";
-import Navbar from "./components/Navbar";
+
 // import "./App.css";
 // import teams from "./teams.json";w
 import Wrapper from "./components/Wrapper";
