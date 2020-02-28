@@ -7,6 +7,7 @@ const cheerio = require("cheerio");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
 
 const keys = require("./config/keys.js");
 
@@ -71,6 +72,7 @@ app.get("/scrape", function(req, res) {
   res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
+app.use(routes);
 // app.get("/draft", function(req, res) {
 //   axios
 //     .get(
