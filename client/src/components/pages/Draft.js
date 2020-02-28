@@ -53,7 +53,6 @@ class Draft extends Component {
       playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
       console.log("----------------------------------------------------");
       console.log(playerOrder);
-      console.log(this.state.teamPlayers);
       this.setState({
         playerOrder: playerOrder
       });
@@ -67,7 +66,7 @@ class Draft extends Component {
       API.getPlayers()
         .then(res => this.setState({ teamPlayers: res.data }))
         .catch(err => console.log(err));
-      console.log(this.teamPlayers);
+      console.log(this.state.teamPlayers);
     },
 
     teamMaker: () => {

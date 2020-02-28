@@ -5,23 +5,29 @@ const path = require("path");
 const axios = require("axios");
 const cheerio = require("cheerio");
 require("dotenv").config();
+const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3001;
+
 const keys = require("./config/keys.js");
 
 const app = express();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-const databaseUrl = "ffb";
-const collections = ["title", "link"];
+// const databaseUrl = "ffb";
+// const collections = ["title", "link"];
 
-const db = mongojs(databaseUrl, collections);
+// const db = mongojs(databaseUrl, collections);
 
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
 
 app.get("/all", function(req, res) {
   db.scrappedData.find({}, function(error, found) {
@@ -65,43 +71,53 @@ app.get("/scrape", function(req, res) {
   res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
-app.get("/draft", function(req, res) {
-  axios
-    .get(
-      "https://www.fantasyfootballnerd.com/service/draft-rankings/json/8f5fyberwf32" +
-        keys.keys.API_Key
-    )
-    .then(function(data) {
-      const players = data.data.DraftRankings;
-      console.log(players);
-      res.send(players);
-      // players.forEach(element => {
-      for (let i = 0; i < players.length; i++) {
-        const name = players[i].displayName;
-        const position = players[i].position;
-        const team = players[i].team;
-        const rank = players[i].overallRank;
-        db.rankings.insert(
-          {
-            name: name,
-            position: position,
-            team: team,
-            rank: rank,
-            selected: false
-          },
-          function(err, inserted) {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log(inserted);
-            }
-          }
-        );
-      }
-    });
-  // });
+// app.get("/draft", function(req, res) {
+//   axios
+//     .get(
+//       "https://www.fantasyfootballnerd.com/service/draft-rankings/json/8f5fyberwf32" +
+//         keys.keys.API_Key
+//     )
+//     .then(function(data) {
+//       const players = data.data.DraftRankings;
+//       console.log(players);
+//       res.send(players);
+//       // players.forEach(element => {
+//       for (let i = 0; i < players.length; i++) {
+//         const name = players[i].displayName;
+//         const position = players[i].position;
+//         const team = players[i].team;
+//         const rank = players[i].overallRank;
+//         db.rankings.insert(
+//           {
+//             name: name,
+//             position: position,
+//             team: team,
+//             rank: rank,
+//             selected: false
+//           },
+//           function(err, inserted) {
+//             if (err) {
+//               console.log(err);
+//             } else {
+//               console.log(inserted);
+//             }
+//           }
+//         );
+//       }
+//     });
+//   // });
+// });
+
+// console.log("TEST123");
+
+mongoose.connect("mongodb://localhost/ffb", function(err, data) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("connected");
+  }
 });
 
-app.listen(3000, function() {
-  console.log("App running on http://localhost:3000");
+app.listen(PORT, function() {
+  console.log("App running on http://localhost:" + PORT);
 });
