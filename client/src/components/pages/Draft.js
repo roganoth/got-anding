@@ -50,7 +50,7 @@ class Draft extends Component {
         playerOrder[i].orderNumber = players[i];
       }
       console.log(playerOrder);
-      playerOrder.sort((a, b) => b.orderNumber - a.orderNumber);
+      playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
       console.log("----------------------------------------------------");
       console.log(playerOrder);
       this.setState({
@@ -66,7 +66,8 @@ class Draft extends Component {
       API.getPlayers()
         .then(res => this.setState({ teamPlayers: res.data }))
         .catch(err => console.log(err));
-      console.log(this.state.teamPlayers);
+      this.state.teamPlayers.sort((a, b) => a.rank - b.rank);
+      this.state.teamPlayers.slice(0, 149);
     },
 
     teamMaker: () => {
@@ -100,7 +101,8 @@ class Draft extends Component {
             orderNumber={order.orderNumber}
           />
         ))}
-        {this.state.loadPlayers()}
+        <ShuffleButton picker={this.state.picker} />
+        {/* {this.state.componentDidMount()} */}
         {this.state.teamPlayers.map(choices => (
           <TempGrid
             name={choices.name}
@@ -110,7 +112,6 @@ class Draft extends Component {
             choose={this.state.playerTeamJoin}
           />
         ))}
-        <ShuffleButton picker={this.state.picker} />
       </Wrapper>
     );
   }
