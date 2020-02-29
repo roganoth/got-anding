@@ -50,7 +50,7 @@ class Draft extends Component {
         playerOrder[i].orderNumber = players[i];
       }
       console.log(playerOrder);
-      playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
+      playerOrder.sort((a, b) => b.orderNumber - a.orderNumber);
       console.log("----------------------------------------------------");
       console.log(playerOrder);
       this.setState({

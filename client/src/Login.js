@@ -43,7 +43,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div blassName="col-md-6">
+      <div className="col-md-6">
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
