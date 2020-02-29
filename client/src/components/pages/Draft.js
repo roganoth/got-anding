@@ -3,7 +3,11 @@ import API from "../utils/API";
 import PlayerCard from "../PlayerCard";
 import ShuffleButton from "../ShuffleButton";
 import Wrapper from "../Wrapper";
-// import { Col, Row, Container } from "../Grid";
+// import Grid from "./../NflPlayers/index";
+// import EnhancedTable from "./../Table/index";
+// import Example from "./../Table";
+// import { Container, Col, Row } from "./../Grid";
+import TempGrid from "./../TempGrid/index";
 
 class Draft extends Component {
   state = {
@@ -48,23 +52,13 @@ class Draft extends Component {
       for (let i = 0; i < playerOrder.length; i++) {
         playerOrder[i].orderNumber = players[i];
       }
-      console.log(playerOrder);
+      // console.log(playerOrder);
       playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
-      console.log("----------------------------------------------------");
-      console.log(playerOrder);
+      // console.log("----------------------------------------------------");
+      // console.log(playerOrder);
       this.setState({
         playerOrder: playerOrder
       });
-    },
-
-    componentDidMount() {
-      this.loadPlayers();
-    },
-
-    loadPlayers: () => {
-      API.getPlayers()
-        .then(res => this.setState({ players: res.data }))
-        .catch(err => console.log(err));
     },
 
     teamMaker: () => {
@@ -88,16 +82,37 @@ class Draft extends Component {
     }
   };
 
+  componentDidMount() {
+    this.loadPlayers();
+  }
+
+  loadPlayers = () => {
+    API.getPlayers()
+      .then(res => this.setState({ teamPlayers: res.data }))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Wrapper>
         {this.state.playerOrder.map(order => (
           <PlayerCard
+            key={order.playerNumber}
             playerNumber={order.playerNumber}
             orderNumber={order.orderNumber}
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
+        {this.state.teamPlayers.slice(0, 250).map(choices => (
+          <TempGrid
+            key={choices.name}
+            name={choices.name}
+            position={choices.position}
+            team={choices.team}
+            rank={choices.rank}
+            choose={this.state.playerTeamJoin}
+          />
+        ))}
       </Wrapper>
     );
   }

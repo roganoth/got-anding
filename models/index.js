@@ -1,5 +1,5 @@
 module.exports = {
-  Players: require("./player"),
+  Players: require("./playerTeam"),
   User: require("./userTeam"),
   Team1: require("./team1"),
   Team2: require("./team2"),

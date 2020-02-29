@@ -9,6 +9,6 @@ const playersSchema = new Schema({
   selected: { type: Boolean, default: false }
 });
 
-const Players = mongoose.model("Players", playersSchema);
+const Players = mongoose.model("rankings", playersSchema);
 
 module.exports = Players;
