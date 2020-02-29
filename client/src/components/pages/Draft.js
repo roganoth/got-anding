@@ -3,8 +3,7 @@ import API from "../utils/API";
 import PlayerCard from "../PlayerCard";
 import ShuffleButton from "../ShuffleButton";
 import Wrapper from "../Wrapper";
-import TempGrid from "../TempGrid";
-// import { Col, Row, Container } from "../Grid";
+import Grid from "./../NflPlayers/index";
 
 class Draft extends Component {
   state = {
@@ -104,7 +103,7 @@ class Draft extends Component {
         <ShuffleButton picker={this.state.picker} />
         {/* {this.state.componentDidMount()} */}
         {this.state.teamPlayers.map(choices => (
-          <TempGrid
+          <Grid
             name={choices.name}
             position={choices.position}
             team={choices.team}

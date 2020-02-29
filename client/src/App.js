@@ -7,7 +7,7 @@ import fire from "./Fire";
 import Login from "./Login";
 import Home from "./Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MenuAppBar from "./components/Navbar";
+import MenuAppBar from "./components/Navbar/index";
 import BackToTop from "./components/NflPlayers/index";
 
 class App extends Component {
