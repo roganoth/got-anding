@@ -4,11 +4,10 @@ import Draft from "./components/pages/Draft";
 // import teams from "./teams.json";w
 import Wrapper from "./components/Wrapper";
 import fire from "./Fire";
-import Login from "./Login";
-import Home from "./Home";
+import Login from "./components/pages/Login";
+import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MenuAppBar from "./components/Navbar/index";
-import BackToTop from "./components/NflPlayers/index";
 
 class App extends Component {
   componentDidMount() {
@@ -37,7 +36,6 @@ class App extends Component {
         <div>
           <Fragment>
             <MenuAppBar />
-            <BackToTop />
             <Draft />
           </Fragment>
         </div>

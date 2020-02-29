@@ -3,7 +3,8 @@ import API from "../utils/API";
 import PlayerCard from "../PlayerCard";
 import ShuffleButton from "../ShuffleButton";
 import Wrapper from "../Wrapper";
-import Grid from "./../NflPlayers/index";
+// import Grid from "./../NflPlayers/index";
+import Grid from "./../Table/index";
 
 class Draft extends Component {
   state = {
@@ -57,18 +58,6 @@ class Draft extends Component {
       });
     },
 
-    componentDidMount() {
-      this.loadPlayers();
-    },
-
-    loadPlayers: () => {
-      API.getPlayers()
-        .then(res => this.setState({ teamPlayers: res.data }))
-        .catch(err => console.log(err));
-      this.state.teamPlayers.sort((a, b) => a.rank - b.rank);
-      this.state.teamPlayers.slice(0, 149);
-    },
-
     teamMaker: () => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
@@ -90,6 +79,17 @@ class Draft extends Component {
     }
   };
 
+  componentDidMount() {
+    this.loadPlayers();
+  }
+
+  loadPlayers = () => {
+    API.getPlayers()
+      .then(res => this.setState({ teamPlayers: res.data }))
+      .catch(err => console.log(err));
+    this.state.teamPlayers.slice(149);
+  };
+
   render() {
     return (
       <Wrapper>
@@ -101,8 +101,7 @@ class Draft extends Component {
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
-        {/* {this.state.componentDidMount()} */}
-        {this.state.teamPlayers.map(choices => (
+        {this.state.teamPlayers.slice(0, 250).map(choices => (
           <Grid
             name={choices.name}
             position={choices.position}
