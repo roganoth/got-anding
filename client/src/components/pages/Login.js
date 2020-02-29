@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "./Fire";
+import fire from "../../Fire";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -43,7 +43,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div blassName="col-md-6">
+      <div className="col-md-6">
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
