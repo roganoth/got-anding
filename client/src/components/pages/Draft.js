@@ -73,12 +73,18 @@ class Draft extends Component {
       }
     },
 
-    playerTeamJoin: event => {
+    playerTeamJoin: () => {
       let userTeam = this.state.userTeam;
-      if (event.target.selected === false) {
-        event.target.selected = true;
-        userTeam.push(event.target);
-      }
+      document.getElementById("teamButton").onclick(function (event) {
+        if (event.target.selected === false) {
+          event.target.selected = true;
+          userTeam.push(event.target);
+          console.log(userTeam)
+        }
+        else {
+          console.log("seems a miss")
+        }
+      })
     }
   };
 
@@ -110,6 +116,7 @@ class Draft extends Component {
             position={choices.position}
             team={choices.team}
             rank={choices.rank}
+            selected={choices.selected}
             choose={this.state.playerTeamJoin}
           />
         ))}

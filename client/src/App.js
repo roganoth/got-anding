@@ -7,8 +7,8 @@ import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import MenuAppBar from "./components/Navbar/index";
-import { Button } from "reactstrap";
+import MenuAppBar from "./components/navbar/index";
+// import { Button } from "reactstrap";
 
 class App extends Component {
   componentDidMount() {
@@ -35,6 +35,7 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
+          <MenuAppBar></MenuAppBar>
           <Fragment>
             <Draft />
           </Fragment>

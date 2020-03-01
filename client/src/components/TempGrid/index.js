@@ -7,7 +7,7 @@ function TempGrid(props) {
       <p>
         {props.name} | {props.position} | {props.team} | {props.rank}
       </p>
-      <p onClick={() => props.choose(props.event)}></p>
+      <button onClick={() => props.choose()} selected={props.selected} id="teamButton">Add to your Team</button>
     </div>
   );
 }
