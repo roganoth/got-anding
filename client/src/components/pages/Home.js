@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fire from "../../Fire";
+import Draft from "../pages/Draft";
 
 class Home extends Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="col-md-6">
-        <h1> You are home</h1>
+      <div>
         <button onClick={this.logout}> Logout</button>
+        <Draft />
       </div>
     );
   }
