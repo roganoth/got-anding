@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import fire from "../../Fire";
 import Draft from "../pages/Draft";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 class Home extends Component {
   constructor(props) {
@@ -15,7 +17,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.logout}> Logout</button>
+        <Button color="inherit" onClick={this.logout}>
+          Logout
+        </Button>
+
         <Draft />
       </div>
     );

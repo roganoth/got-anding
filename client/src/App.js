@@ -7,7 +7,7 @@ import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ButtonAppBar from "../src/components/navbar/index";
+import ButtonAppBar2 from "../src/components/navbar2/navbar2";
 // import MenuAppBar from "./components/Navbar/index";
 // import { Button } from "reactstrap";
 
@@ -37,7 +37,7 @@ class App extends Component {
       <Wrapper>
         <div>
           <Fragment>
-            <ButtonAppBar />
+            <ButtonAppBar2 />
           </Fragment>
         </div>
         <br></br>
