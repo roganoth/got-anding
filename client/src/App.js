@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Draft from "./components/pages/Draft";
+// import Draft from "./components/pages/Draft";
 // import "./App.css";
 // import teams from "./teams.json";w
 import Wrapper from "./components/Wrapper";
@@ -7,8 +7,9 @@ import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ButtonAppBar from "../src/components/navbar/index";
 // import MenuAppBar from "./components/Navbar/index";
-import { Button } from "reactstrap";
+// import { Button } from "reactstrap";
 
 class App extends Component {
   componentDidMount() {
@@ -36,9 +37,10 @@ class App extends Component {
       <Wrapper>
         <div>
           <Fragment>
-            <Draft />
+            <ButtonAppBar />
           </Fragment>
         </div>
+        <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
       </Wrapper>
     );

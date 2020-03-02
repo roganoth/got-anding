@@ -74,6 +74,8 @@ class Login extends Component {
           <Button variant="primary" type="submit" onClick={this.login}>
             Submit
           </Button>
+          <br></br>
+          <br></br>
           <Button variant="primary" type="submit" onClick={this.signup}>
             Signup
           </Button>
