@@ -8,6 +8,7 @@ import Wrapper from "../Wrapper";
 // import Example from "./../Table";
 // import { Container, Col, Row } from "./../Grid";
 import TempGrid from "./../TempGrid/index";
+// import { CardTitle } from "reactstrap";
 
 class Draft extends Component {
   state = {
@@ -46,10 +47,16 @@ class Draft extends Component {
     ],
     teamPlayers: [],
     userTeam: [],
+    bobsTeam: [],
+    davesTeam: [],
+    wadesTeam: [],
+    marksTeam: [],
+    jacksTeam: [],
 
     picker: () => {
       let players = this.state.players;
       let playerOrder = this.state.playerOrder;
+      let teamPlayers = this.state.teamPlayers;
 
       for (let i = 0; i < players.length; i++) {
         let j = Math.floor(Math.random() * i + 1);
@@ -65,24 +72,72 @@ class Draft extends Component {
       this.setState({
         playerOrder: playerOrder
       });
+      teamPlayers.forEach(element => this.state.teamMaker(element));
     },
 
-    teamMaker: () => {
+    tryAgain: () => { 
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
-      if (teamPlayers[random].selected === false) {
-        teamPlayers[random].selected = true;
-        // console.log(array[random]);
-        // selected.push(teamPlayers[random]);
-      } else {
-        this.teamMaker();
+      playerValidation(teamPlayers[random]);
+    },
+
+    playerValidation: (selection) => {
+      if (selection.selected === false) {
+        return true
       }
+      else {
+        this.state.tryAgain();
+      }
+    },
+
+    userPrompt: () => { },
+
+    teamMaker: (team) => {
+      let teamPlayers = this.state.teamPlayers;
+      let random = Math.floor(Math.random() * 10);
+      console.log(teamPlayers[random]);
+        switch (team.name) {
+          case "Bob":
+            playerValidation(teamPlayers[random]);
+            bobsTeam.push(teamPlayers[random]);
+            console.log(bobsTeam);
+            break;
+          case "Dave":
+            davesTeam.push(teamPlayers[random]);
+            console.log(davesTeam);
+            break;
+          case "Wade":
+            playerValidation(teamPlayers[random]);
+            wadesTeam.push(teamPlayers[random]);
+            console.log(wadesTeam);
+            break;
+          case "Mark":
+            playerValidation(teamPlayers[random]);
+            marksTeam.push(teamPlayers[random]);
+            console.log(marksTeam);
+            break;
+          case "Jack":
+            playerValidation(teamPlayers[random]);
+            jacksTeam.push(teamPlayers[random]);
+            console.log(jacksTeam);
+            break;
+          case "User":
+            this.state.userPrompt();
+            break;
+        }
+      // if (teamPlayers[random].selected === false) {
+      //   teamPlayers[random].selected = true;
+      // } else {
+      //   this.state.teamMaker();
+      // }
     },
 
     playerTeamJoin: (event) => {
       // let userTeam = this.state.userTeam;
       console.log(this.state.teamPlayers.slice(0, 10))
       console.log(event.target)
+      console.log(event.target.id)
+      console.log(event.target.selected)
       console.log(event.target.name)
 
       // console.log(userTeam)
@@ -94,7 +149,8 @@ class Draft extends Component {
       //     name: event.target.name,
       //     position: event.target.position,
       //     team: event.target.team,
-      //     rank: event.target.rank
+      //     rank: Number.parseInt(event.target.rank),
+      //     benched: true
       //   });
       //   console.log(userTeam)
       // }
@@ -135,7 +191,7 @@ class Draft extends Component {
             rank={choices.rank}
             selected={choices.selected}
             choose={this.state.playerTeamJoin}
-            id={choices.id}
+            id={choices._id}
           />
         ))}
       </Wrapper>
