@@ -36,6 +36,7 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
+          <MenuAppBar></MenuAppBar>
           <Fragment>
             <ButtonAppBar2 />
           </Fragment>
