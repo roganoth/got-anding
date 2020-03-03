@@ -72,17 +72,20 @@ class Draft extends Component {
       this.setState({
         playerOrder: playerOrder
       });
-      teamPlayers.forEach(element => this.state.teamMaker(element));
+      playerOrder.forEach(object => this.state.teamMaker(object));
     },
 
-    tryAgain: () => { 
+    tryAgain: () => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
-      playerValidation(teamPlayers[random]);
+      this.state.playerValidation(teamPlayers[random]);
     },
-
+    
     playerValidation: (selection) => {
+      console.log("validation")
       if (selection.selected === false) {
+        selection.selected = true;
+        console.log("before")
         return true
       }
       else {
@@ -95,36 +98,37 @@ class Draft extends Component {
     teamMaker: (team) => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
-      console.log(teamPlayers[random]);
-        switch (team.name) {
-          case "Bob":
-            playerValidation(teamPlayers[random]);
-            bobsTeam.push(teamPlayers[random]);
-            console.log(bobsTeam);
-            break;
-          case "Dave":
-            davesTeam.push(teamPlayers[random]);
-            console.log(davesTeam);
-            break;
-          case "Wade":
-            playerValidation(teamPlayers[random]);
-            wadesTeam.push(teamPlayers[random]);
-            console.log(wadesTeam);
-            break;
-          case "Mark":
-            playerValidation(teamPlayers[random]);
-            marksTeam.push(teamPlayers[random]);
-            console.log(marksTeam);
-            break;
-          case "Jack":
-            playerValidation(teamPlayers[random]);
-            jacksTeam.push(teamPlayers[random]);
-            console.log(jacksTeam);
-            break;
-          case "User":
-            this.state.userPrompt();
-            break;
-        }
+      // console.log(teamPlayers[random]);
+      switch (team.name) {
+        case "Bob":
+          this.state.playerValidation(teamPlayers[random]);
+          this.state.bobsTeam.push(teamPlayers[random]);
+          console.log(this.state.bobsTeam);
+          break;
+        case "Dave":
+          this.state.playerValidation(teamPlayers[random])
+          this.state.davesTeam.push(teamPlayers[random]);
+          console.log(this.state.davesTeam);
+          break;
+        case "Wade":
+          this.state.playerValidation(teamPlayers[random]);
+          this.state.wadesTeam.push(teamPlayers[random]);
+          console.log(this.state.wadesTeam);
+          break;
+        case "Mark":
+          this.state.playerValidation(teamPlayers[random]);
+          this.state.marksTeam.push(teamPlayers[random]);
+          console.log(this.state.marksTeam);
+          break;
+        case "Jack":
+          this.state.playerValidation(teamPlayers[random]);
+          this.state.jacksTeam.push(teamPlayers[random]);
+          console.log(this.state.jacksTeam);
+          break;
+        case "User":
+          // this.state.userPrompt();
+          break;
+      }
       // if (teamPlayers[random].selected === false) {
       //   teamPlayers[random].selected = true;
       // } else {
