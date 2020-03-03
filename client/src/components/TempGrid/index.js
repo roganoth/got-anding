@@ -1,15 +1,19 @@
 import React from "react";
+// import "./index.css"
 
-function TempGrid(props) {
+function renderResultRows(props) {
   return (
-    <div>
-      <p>____________________</p>
-      <p>
-        {props.name} | {props.position} | {props.team} | {props.rank}
-      </p>
-      <button onClick={() => props.choose()} selected={props.selected} id="teamButton">Add to your Team</button>
-    </div>
+    <table className="table">
+      <tbody>
+        <tr key={props.name} onClick={props.choose}>
+          <td data-title="Name" selected={props.selected} name={props.name} id={props.id} position={props.position} team={props.team} rank={props.rank}>{props.name}</td>
+          <td data-title="Posision" selected={props.selected} name={props.name} id={props.id} position={props.position} team={props.team} rank={props.rank}>{props.position}</td>
+          <td data-title="Team" selected={props.selected} name={props.name} id={props.id} position={props.position} team={props.team} rank={props.rank}>{props.team}</td>
+          <td data-title="Rank" selected={props.selected} name={props.name} id={props.id} position={props.position} team={props.team} rank={props.rank}>{props.rank}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
 
-export default TempGrid;
+export default renderResultRows;

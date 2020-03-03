@@ -18,3 +18,7 @@
 .card > .img-container > img {
   width: 60%;
 }
+
+#cardHolder {
+  float: left;
+}

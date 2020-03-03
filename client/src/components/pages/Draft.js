@@ -15,27 +15,33 @@ class Draft extends Component {
     playerOrder: [
       {
         playerNumber: 1,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "User"
       },
       {
         playerNumber: 2,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "Bob"
       },
       {
         playerNumber: 3,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "Dave"
       },
       {
         playerNumber: 4,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "Wade"
       },
       {
         playerNumber: 5,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "Mark"
       },
       {
         playerNumber: 6,
-        orderNumber: 0
+        orderNumber: 0,
+        name: "Jack"
       }
     ],
     teamPlayers: [],
@@ -73,18 +79,28 @@ class Draft extends Component {
       }
     },
 
-    playerTeamJoin: () => {
-      let userTeam = this.state.userTeam;
-      document.getElementById("teamButton").onclick(function (event) {
-        if (event.target.selected === false) {
-          event.target.selected = true;
-          userTeam.push(event.target);
-          console.log(userTeam)
-        }
-        else {
-          console.log("seems a miss")
-        }
-      })
+    playerTeamJoin: (event) => {
+      // let userTeam = this.state.userTeam;
+      console.log(this.state.teamPlayers.slice(0, 10))
+      console.log(event.target)
+      console.log(event.target.name)
+
+      // console.log(userTeam)
+      // if (event.target.selected === false) {
+      //   event.target.selected = true;
+      //   userTeam.push({
+      //     selected: event.target.selected,
+      //     id: event.target.id,
+      //     name: event.target.name,
+      //     position: event.target.position,
+      //     team: event.target.team,
+      //     rank: event.target.rank
+      //   });
+      //   console.log(userTeam)
+      // }
+      // else {
+      //   console.log("seems a miss")
+      // }
     }
   };
 
@@ -106,6 +122,7 @@ class Draft extends Component {
             key={order.playerNumber}
             playerNumber={order.playerNumber}
             orderNumber={order.orderNumber}
+            name={order.name}
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
@@ -118,6 +135,7 @@ class Draft extends Component {
             rank={choices.rank}
             selected={choices.selected}
             choose={this.state.playerTeamJoin}
+            id={choices.id}
           />
         ))}
       </Wrapper>
