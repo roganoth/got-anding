@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "../../Fire";
+import fire from "./../components/Firebase";
 
 class Home extends Component {
   constructor(props) {

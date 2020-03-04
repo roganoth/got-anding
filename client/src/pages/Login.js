@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fire from "../../Fire";
+import fire from "../components/Firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";

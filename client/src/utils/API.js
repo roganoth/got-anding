@@ -9,5 +9,8 @@ export default {
   },
   saveTeam: function(teamData) {
     return axios.post("/api/teams", teamData);
+  },
+  deletePlayer: function(id) {
+    return axios.delete("/api/players" + id);
   }
 };

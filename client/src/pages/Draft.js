@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import PlayerCard from "../PlayerCard";
-import ShuffleButton from "../ShuffleButton";
-import Wrapper from "../Wrapper";
+import API from "./../utils/API";
+import PlayerCard from "../components/PlayerCard";
+import ShuffleButton from "../components/ShuffleButton";
+import Wrapper from "../components/Wrapper";
 // import Grid from "./../NflPlayers/index";
 // import EnhancedTable from "./../Table/index";
 // import Example from "./../Table";
 // import { Container, Col, Row } from "./../Grid";
-import TempGrid from "./../TempGrid/index";
+import TempGrid from "../components/TempGrid/index";
+import UserTeam from "../components/UserTeam";
 // import { CardTitle } from "reactstrap";
 // import SaveButton from "./../SaveButton";
 
@@ -76,8 +77,9 @@ class Draft extends Component {
         let teamPlayers = this.state.teamPlayers;
         // if (playerOrder.name !== "User") {
         let random = Math.floor(Math.random() * 3);
+        let userTeam = this.state.userTeam;
         playerOrder.forEach(object => {
-          if (!this.state.selectedPlayers.includes(teamPlayers[random])) {
+          if (object.name !== "User") {
             teamPlayers[random].selected = true;
             this.state.selectedPlayers.push(teamPlayers[random]);
             object.team.push(teamPlayers[random]);
@@ -92,30 +94,17 @@ class Draft extends Component {
             );
             console.log(this.state.selectedPlayers);
             teamPlayers.splice(random, 1);
-          } //else {
-          //   this.state.tryAgain(object);
-          // }
+          } else {
+            userTeam.push(teamPlayers[random]);
+            object.team.push(teamPlayers[random]);
+            teamPlayers.splice(random, 1);
+          }
+          console.log(this.state.userTeam);
+          this.setState({ userTeam: userTeam });
         });
-        // }
       }
+      // }
     },
-
-    // tryAgain: object => {
-    //   let teamPlayers = this.state.teamPlayers;
-    //   let random = Math.floor(Math.random() * 10);
-    //   // this.state.playerValidation(teamPlayers[random]);
-    //   console.log("trying agin");
-    //   if (!this.state.selectedPlayers.includes(teamPlayers[random])) {
-    //     console.log(random);
-    //     console.log(teamPlayers[random]);
-    //     this.state.selectedPlayers.push(teamPlayers[random]);
-    //     object.team.push(teamPlayers[random]);
-    //     console.log(object.team);
-    //     teamPlayers.splice(random, 1);
-    //   } else {
-    //     this.state.tryAgain();
-    //   }
-    // },
 
     playerValidation: selection => {
       let selectedPlayers = this.state.selectedPlayers;
@@ -126,22 +115,14 @@ class Draft extends Component {
         selection.selected = true;
         selectedPlayers.push(selection);
       }
-
-      // if (!selection.selected) {
-      //   selection.selected = true;
-      // } else {
-      //   this.state.tryAgain();
-      // }
-      // if (selection.selected === false) {
-      //   selection.selected = true;
-      //   console.log("before");
-      //   return true;
-      // } else {
-      //   this.state.tryAgain();
-      // }
     },
 
-    userPrompt: () => {},
+    userPrompt: () => {
+      window.confirm("Click a Player to add to Your Team, then Continue");
+      if (true) {
+        return true;
+      }
+    },
 
     playerTeamJoin: ({ name, position, team, rank }) => {
       console.log(name);
@@ -149,39 +130,24 @@ class Draft extends Component {
       console.log(team);
       console.log(rank);
       this.state.userTeam.push({ name, position, team, rank });
-      // this.state.playerOrder.push({ name, position, team, rank });
-      // console.log(event.target)
-      // // let userTeam = this.state.userTeam;
-      // console.log(this.state.teamPlayers.slice(0, 10));
-      // console.log(event.target);
-      // console.log(event.target.id);
-      // console.log(event.target.selected);
-      // console.log(event.target.name);
-
-      // console.log(userTeam)
-      // if (event.target.selected === false) {
-      //   event.target.selected = true;
-      //   userTeam.push({
-      //     selected: event.target.selected,
-      //     id: event.target.id,
-      //     name: event.target.name,
-      //     position: event.target.position,
-      //     team: event.target.team,
-      //     rank: Number.parseInt(event.target.rank),
-      //     benched: true
-      //   });
-      //   console.log(userTeam)
-      // }
-      // else {
-      //   console.log("seems a miss")
-      // }
-    },
-
-    save: teamData => {
-      API.saveTeam(teamData)
-        .then(res => console.log("team saved " + res))
-        .catch(err => console.log(err));
     }
+  };
+
+  save = () => {
+    API.saveTeam({
+      name: this.state.userTeam.name,
+      position: this.state.userTeam.position,
+      team: this.state.userTeam.team,
+      rank: this.state.userTeam.rank
+    })
+      .then(res => console.log("team saved " + res))
+      .catch(err => console.log(err));
+  };
+
+  delete = id => {
+    API.deletePlayer(id)
+      .then(res => console.log("Player Deleted"))
+      .catch(err => console.log(err));
   };
 
   componentDidMount() {
@@ -208,6 +174,10 @@ class Draft extends Component {
         ))}
         <ShuffleButton picker={this.state.picker} />
         {/* <SaveButton saveButton={this.state.save(this.state.userTeam)} /> */}
+        <UserTeam
+          name={this.state.userTeam.name}
+          key={this.state.userTeam.name}
+        />
         {this.state.teamPlayers.slice(0, 250).map(choices => (
           <TempGrid
             key={choices.name}
