@@ -3,6 +3,7 @@ import fire from "../../Fire";
 import Draft from "../pages/Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
+import Headlines from "../Headlines/Headlines";
 
 class Home extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class Home extends Component {
         <Button color="inherit" onClick={this.logout}>
           Logout
         </Button>
-
+        <br></br>
+        <Headlines />
         <Draft />
       </div>
     );

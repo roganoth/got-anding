@@ -23,81 +23,53 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// const databaseUrl = "ffb";
-// const collections = ["title", "link"];
+const databaseUrl = "ffb";
+const collections = ["title", "link"];
 
-// const db = mongojs(databaseUrl, collections);
+const db = mongoose(databaseUrl, collections);
 
-// db.on("error", function(error) {
-//   console.log("Database Error:", error);
+// mongoose.connect("mongodb://localhost/headlines", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
 // });
 
-app.get("/all", function(req, res) {
-  db.scrappedData.find({}, function(error, found) {
-    if (error) {
-      console.log(error);
-    } else {
-      res.json(found);
-    }
-  });
-});
+// const schema = mongoose.schema;
+// const headlinesschema = new schema({
+//   title: String,
+//   link: string
+// });
 
-app.get("/scrape", function(req, res) {
-  axios.get("https://www.giants.com/").then(function(response) {
-    const $ = cheerio.load(response.data);
-    $(".nfl-o-headlinestack__itemcontent").each(function(i, element) {
-      const title = $(element)
-        .children("a")
-        .text();
-      const link = $(element)
-        .children("a")
-        .attr("href");
+// mongoose.connection.on("connected", () => {
+//   console.log("mongoose is connected");
+// });
 
-      if (title && link) {
-        db.scrappedData.insert(
-          {
-            title: title,
-            link: link
-          },
-          function(err, inserted) {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log(inserted);
-            }
-          }
-        );
-      }
-    });
-  });
 
-  res.sendFile(path.join(__dirname + "/public/index.html"));
-});
+// app.get("/all", function(req, res) {
+//   db.scrappedData.find({}, function(error, found) {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       res.json(found);
+//     }
+//   });
+// });
 
-app.use(routes);
-// app.get("/draft", function(req, res) {
-//   axios
-//     .get(
-//       "https://www.fantasyfootballnerd.com/service/draft-rankings/json/8f5fyberwf32" +
-//         keys.keys.API_Key
-//     )
-//     .then(function(data) {
-//       const players = data.data.DraftRankings;
-//       console.log(players);
-//       res.send(players);
-//       // players.forEach(element => {
-//       for (let i = 0; i < players.length; i++) {
-//         const name = players[i].displayName;
-//         const position = players[i].position;
-//         const team = players[i].team;
-//         const rank = players[i].overallRank;
-//         db.rankings.insert(
+// app.get("/scrape", function(req, res) {
+//   axios.get("https://www.cowboys.com/").then(function(response) {
+//     const $ = cheerio.load(response.data);
+//     $(".nfl-o-headlinestack__itemcontent").each(function(i, element) {
+//       const title = $(element)
+//         .children("a")
+//         .text();
+//       const link = $(element)
+//         .children("a")
+//         .attr("href");
+
+//       if (title && link) {
+//         db.scrappedData.insert(
 //           {
-//             name: name,
-//             position: position,
-//             team: team,
-//             rank: rank,
-//             selected: false
+//             title: title,
+//             link: link
 //           },
 //           function(err, inserted) {
 //             if (err) {
@@ -109,10 +81,49 @@ app.use(routes);
 //         );
 //       }
 //     });
-//   // });
+//   });
+//   res.sendFile(path.join(__dirname + "/public/index.html"));
 // });
 
-// console.log("TEST123");
+app.use(routes);
+app.get("/draft", function(req, res) {
+  axios
+    .get(
+      "https://www.fantasyfootballnerd.com/service/draft-rankings/json/8f5fyberwf32" +
+        keys.keys.API_Key
+    )
+    .then(function(data) {
+      const players = data.data.DraftRankings;
+      console.log(players);
+      res.send(players);
+      // players.forEach(element => {
+      for (let i = 0; i < players.length; i++) {
+        const name = players[i].displayName;
+        const position = players[i].position;
+        const team = players[i].team;
+        const rank = players[i].overallRank;
+        db.rankings.insert(
+          {
+            name: name,
+            position: position,
+            team: team,
+            rank: rank,
+            selected: false
+          },
+          function(err, inserted) {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(inserted);
+            }
+          }
+        );
+      }
+    });
+  // });
+});
+
+console.log("TEST123");
 
 mongoose.connect("mongodb://localhost/ffb", function(err, data) {
   if (err) {

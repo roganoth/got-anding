@@ -10,6 +10,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonAppBar2 from "../src/components/navbar2/navbar2";
 // import MenuAppBar from "./components/Navbar/index";
 // import { Button } from "reactstrap";
+import TeamSelect from "./components/TeamSelect/index";
+import Headlines from "./components/Headlines/Headlines";
 
 class App extends Component {
   componentDidMount() {
@@ -36,11 +38,12 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
-          <MenuAppBar></MenuAppBar>
+          {/* <MenuAppBar></MenuAppBar> */}
           <Fragment>
             <ButtonAppBar2 />
           </Fragment>
         </div>
+        <TeamSelect />
         <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
       </Wrapper>
