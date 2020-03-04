@@ -10,7 +10,7 @@ import Wrapper from "../components/Wrapper";
 import TempGrid from "../components/TempGrid/index";
 import UserTeam from "../components/UserTeam";
 // import { CardTitle } from "reactstrap";
-// import SaveButton from "./../SaveButton";
+import SaveButton from "./../components/SaveButton";
 
 class Draft extends Component {
   state = {
@@ -98,9 +98,16 @@ class Draft extends Component {
             userTeam.push(teamPlayers[random]);
             object.team.push(teamPlayers[random]);
             teamPlayers.splice(random, 1);
+            // this.saveTeam({
+            //   name: userTeam.name,
+            //   team: userTeam.team,
+            //   position: userTeam.position,
+            //   rank: userTeam.rank
+            // });
           }
           console.log(this.state.userTeam);
           this.setState({ userTeam: userTeam });
+          this.setState({ playerOrder: playerOrder });
         });
       }
       // }
@@ -133,7 +140,8 @@ class Draft extends Component {
     }
   };
 
-  save = () => {
+  save = event => {
+    event.preventDefault();
     API.saveTeam({
       name: this.state.userTeam.name,
       position: this.state.userTeam.position,
@@ -160,6 +168,11 @@ class Draft extends Component {
       .catch(err => console.log(err));
   };
 
+  dataChecker = ({ name, position, team, rank }) => {
+    this.setState({ state: this.state });
+    console.log({ name, position, team, rank });
+  };
+
   render() {
     return (
       <Wrapper>
@@ -170,10 +183,11 @@ class Draft extends Component {
             orderNumber={order.orderNumber}
             name={order.name}
             team={order.team}
+            dataChecker={this.dataChecker}
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
-        {/* <SaveButton saveButton={this.state.save(this.state.userTeam)} /> */}
+        <SaveButton saveButton={this.save} />
         <UserTeam
           name={this.state.userTeam.name}
           key={this.state.userTeam.name}

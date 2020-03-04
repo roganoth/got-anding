@@ -3,11 +3,11 @@ import React from "react";
 function UserTeam(props) {
   return (
     <table>
-      <tablebody>
+      <tbody>
         <tr key={props.name}>
           <td>{props.name}</td>
         </tr>
-      </tablebody>
+      </tbody>
     </table>
   );
 }
