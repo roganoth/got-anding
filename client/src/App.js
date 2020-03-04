@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 // import Draft from "./components/pages/Draft";
 // import "./App.css";
 // import teams from "./teams.json";w
@@ -8,7 +8,7 @@ import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 // import LogoutButton from "../src/components/pages/LogoutButton";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ButtonAppBar2 from "../src/components/navbar2/navbar2";
+// import ButtonAppBar2 from "../src/components/navbar2/navbar2";
 import ModalExample from "../src/components/Modal/modal";
 // import MenuAppBar from "./components/Navbar/index";
 // import { Button } from "reactstrap";
@@ -37,12 +37,6 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <div>
-          <Fragment>
-            <ButtonAppBar2 />
-          </Fragment>
-        </div>
-        <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
         <ModalExample />
       </Wrapper>
