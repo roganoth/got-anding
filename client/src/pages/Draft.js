@@ -9,7 +9,7 @@ import Wrapper from "../Wrapper";
 // import { Container, Col, Row } from "./../Grid";
 import TempGrid from "./../TempGrid/index";
 // import { CardTitle } from "reactstrap";
-import SaveButton from "./../SaveButton";
+// import SaveButton from "./../SaveButton";
 
 class Draft extends Component {
   state = {
@@ -54,6 +54,7 @@ class Draft extends Component {
     ],
     teamPlayers: [],
     selectedPlayers: [],
+    userTeam: [],
 
     picker: () => {
       let players = this.state.players;
@@ -67,10 +68,7 @@ class Draft extends Component {
       for (let i = 0; i < playerOrder.length; i++) {
         playerOrder[i].orderNumber = players[i];
       }
-      // console.log(playerOrder);
       playerOrder.sort((a, b) => a.orderNumber - b.orderNumber);
-      // console.log("----------------------------------------------------");
-      // console.log(playerOrder);
       this.setState({
         playerOrder: playerOrder
       });
@@ -145,52 +143,13 @@ class Draft extends Component {
 
     userPrompt: () => {},
 
-    // teamMaker: team => {
-    //   let teamPlayers = this.state.teamPlayers;
-    //   let random = Math.floor(Math.random() * 10);
-    //   // console.log(teamPlayers[random]);
-    //   switch (team.name) {
-    //     case "Bob":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.bobsTeam.push(teamPlayers[random]);
-    //       console.log(this.state.bobsTeam);
-    //       break;
-    //     case "Dave":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.davesTeam.push(teamPlayers[random]);
-    //       console.log(this.state.davesTeam);
-    //       break;
-    //     case "Wade":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.wadesTeam.push(teamPlayers[random]);
-    //       console.log(this.state.wadesTeam);
-    //       break;
-    //     case "Mark":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.marksTeam.push(teamPlayers[random]);
-    //       console.log(this.state.marksTeam);
-    //       break;
-    //     case "Jack":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.jacksTeam.push(teamPlayers[random]);
-    //       console.log(this.state.jacksTeam);
-    //       break;
-    //     case "User":
-    //       // this.state.userPrompt();
-    //       break;
-    //   }
-    //   // if (teamPlayers[random].selected === false) {
-    //   //   teamPlayers[random].selected = true;
-    //   // } else {
-    //   //   this.state.teamMaker();
-    //   // }
-    // },
-
     playerTeamJoin: ({ name, position, team, rank }) => {
       console.log(name);
       console.log(position);
       console.log(team);
       console.log(rank);
+      this.state.userTeam.push({ name, position, team, rank });
+      // this.state.playerOrder.push({ name, position, team, rank });
       // console.log(event.target)
       // // let userTeam = this.state.userTeam;
       // console.log(this.state.teamPlayers.slice(0, 10));
@@ -248,7 +207,7 @@ class Draft extends Component {
           />
         ))}
         <ShuffleButton picker={this.state.picker} />
-        {/* <SaveButton saveButton={this.state.save(this.state.playerOrder.team)} /> */}
+        {/* <SaveButton saveButton={this.state.save(this.state.userTeam)} /> */}
         {this.state.teamPlayers.slice(0, 250).map(choices => (
           <TempGrid
             key={choices.name}

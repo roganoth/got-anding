@@ -114,7 +114,7 @@ app.use(routes);
 
 // console.log("TEST123");
 
-mongoose.connect("mongodb://localhost/ffb", function(err, data) {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ffb", function(err, data) {
   if (err) {
     console.log(err);
   } else {

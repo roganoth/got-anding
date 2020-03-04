@@ -7,7 +7,7 @@ import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MenuAppBar from "./components/Navbar";
+import MenuAppBar from "./components/navbar/index";
 // import { Button } from "reactstrap";
 
 class App extends Component {
