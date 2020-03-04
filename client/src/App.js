@@ -6,6 +6,7 @@ import Wrapper from "./components/Wrapper";
 import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
+// import LogoutButton from "../src/components/pages/LogoutButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonAppBar2 from "../src/components/navbar2/navbar2";
 import ModalExample from "../src/components/Modal/modal";

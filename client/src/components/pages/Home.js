@@ -1,26 +1,15 @@
 import React, { Component } from "react";
-import fire from "../../Fire";
+// import fire from "../../Fire";
 import Draft from "../pages/Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
+import ButtonAppBar from "../navbar/index";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    fire.auth().signOut();
-  }
-
   render() {
     return (
       <div>
-        <Button color="inherit" onClick={this.logout}>
-          Logout
-        </Button>
-
+        <ButtonAppBar />
         <Draft />
       </div>
     );
