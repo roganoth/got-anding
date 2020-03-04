@@ -7,12 +7,8 @@ import fire from "./Fire";
 import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
-import MenuAppBar from "./components/Navbar";
-=======
 import ButtonAppBar2 from "../src/components/navbar2/navbar2";
-// import MenuAppBar from "./components/Navbar/index";
->>>>>>> f7566a3c2d9d5a281411e64d38f64aae05858576
+// import MenuAppBar from "./components/navbar/index";
 // import { Button } from "reactstrap";
 
 class App extends Component {
@@ -40,7 +36,7 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
-          <MenuAppBar></MenuAppBar>
+          {/* <MenuAppBar></MenuAppBar> */}
           <Fragment>
             <ButtonAppBar2 />
           </Fragment>

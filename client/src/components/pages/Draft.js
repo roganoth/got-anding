@@ -9,7 +9,7 @@ import Wrapper from "../Wrapper";
 // import { Container, Col, Row } from "./../Grid";
 import TempGrid from "./../TempGrid/index";
 // import { CardTitle } from "reactstrap";
-import SaveButton from "./../SaveButton";
+// import SaveButton from "./../SaveButton";
 
 class Draft extends Component {
   state = {
@@ -79,7 +79,7 @@ class Draft extends Component {
         // if (playerOrder.name !== "User") {
         let random = Math.floor(Math.random() * 3);
         playerOrder.forEach(object => {
-          if (!this.state.selectedPlayers.includes(teamPlayers[random])) {
+          if (object.name !== "User") {
             teamPlayers[random].selected = true;
             this.state.selectedPlayers.push(teamPlayers[random]);
             object.team.push(teamPlayers[random]);
@@ -128,63 +128,9 @@ class Draft extends Component {
         selection.selected = true;
         selectedPlayers.push(selection);
       }
-
-      // if (!selection.selected) {
-      //   selection.selected = true;
-      // } else {
-      //   this.state.tryAgain();
-      // }
-      // if (selection.selected === false) {
-      //   selection.selected = true;
-      //   console.log("before");
-      //   return true;
-      // } else {
-      //   this.state.tryAgain();
-      // }
     },
 
     userPrompt: () => {},
-
-    // teamMaker: team => {
-    //   let teamPlayers = this.state.teamPlayers;
-    //   let random = Math.floor(Math.random() * 10);
-    //   // console.log(teamPlayers[random]);
-    //   switch (team.name) {
-    //     case "Bob":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.bobsTeam.push(teamPlayers[random]);
-    //       console.log(this.state.bobsTeam);
-    //       break;
-    //     case "Dave":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.davesTeam.push(teamPlayers[random]);
-    //       console.log(this.state.davesTeam);
-    //       break;
-    //     case "Wade":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.wadesTeam.push(teamPlayers[random]);
-    //       console.log(this.state.wadesTeam);
-    //       break;
-    //     case "Mark":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.marksTeam.push(teamPlayers[random]);
-    //       console.log(this.state.marksTeam);
-    //       break;
-    //     case "Jack":
-    //       this.state.playerValidation(teamPlayers[random]);
-    //       this.state.jacksTeam.push(teamPlayers[random]);
-    //       console.log(this.state.jacksTeam);
-    //       break;
-    //     case "User":
-    //       // this.state.userPrompt();
-    //       break;
-    //   }
-    //   // if (teamPlayers[random].selected === false) {
-    //   //   teamPlayers[random].selected = true;
-    //   // } else {
-    //   //   this.state.teamMaker();
-    //   // }
-    // },
 
     playerTeamJoin: ({ name, position, team, rank }) => {
       console.log(name);
