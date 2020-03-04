@@ -8,6 +8,7 @@ import Login from "./components/pages/Login";
 import Home from "./components/pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonAppBar2 from "../src/components/navbar2/navbar2";
+import ModalExample from "../src/components/Modal/modal";
 // import MenuAppBar from "./components/Navbar/index";
 // import { Button } from "reactstrap";
 
@@ -36,13 +37,13 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
-          <MenuAppBar></MenuAppBar>
           <Fragment>
             <ButtonAppBar2 />
           </Fragment>
         </div>
         <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
+        <ModalExample />
       </Wrapper>
     );
   }
