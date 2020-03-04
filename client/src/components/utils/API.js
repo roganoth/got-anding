@@ -6,5 +6,8 @@ export default {
   },
   updatePlayers: function(id) {
     return axios.update("/api/players" + id);
+  },
+  saveTeam: function(teamData) {
+    return axios.post("/api/teams", teamData);
   }
 };
