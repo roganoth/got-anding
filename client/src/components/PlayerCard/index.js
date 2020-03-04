@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import ModalExample from "../Modal/modal";
 
 function PlayerCard(props) {
   return (
@@ -12,11 +13,12 @@ function PlayerCard(props) {
       position={props.position}
       rank={props.rank}
     >
-      <div className="container">
-        <h1>{props.name}</h1>
-        <h2>Order to Pick: {props.orderNumber}</h2>
-        <p>{props.team.name}</p>
-      </div>
+      <h1>{props.name}</h1>
+      <h2>Order to Pick: {props.orderNumber}</h2>
+      <p>{props.team.name}</p>
+      <h1>{props.name}</h1>
+      <h2>Order to Pick: {props.orderNumber}</h2>
+      <ModalExample />
     </div>
   );
 }

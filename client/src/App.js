@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from "react";
+<<<<<<< HEAD
 import Draft from "./pages/Draft";
+=======
+// import Draft from "./components/pages/Draft";
+>>>>>>> master
 // import "./App.css";
 // import teams from "./teams.json";w
 import Wrapper from "./components/Wrapper";
@@ -7,7 +11,13 @@ import fire from "./Fire";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
+<<<<<<< HEAD
 import MenuAppBar from "./components/Navbar/index";
+=======
+import ButtonAppBar2 from "../src/components/navbar2/navbar2";
+import ModalExample from "../src/components/Modal/modal";
+// import MenuAppBar from "./components/Navbar/index";
+>>>>>>> master
 // import { Button } from "reactstrap";
 
 class App extends Component {
@@ -35,12 +45,13 @@ class App extends Component {
     return (
       <Wrapper>
         <div>
-          <MenuAppBar></MenuAppBar>
           <Fragment>
-            <Draft />
+            <ButtonAppBar2 />
           </Fragment>
         </div>
+        <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
+        <ModalExample />
       </Wrapper>
     );
   }
