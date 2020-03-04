@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-<<<<<<< HEAD:client/src/pages/Home.js
-import fire from "./../components/Firebase";
-=======
-import fire from "../../Fire";
+import fire from "../components/Firebase";
 import Draft from "../pages/Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
->>>>>>> master:client/src/components/pages/Home.js
 
 class Home extends Component {
   constructor(props) {

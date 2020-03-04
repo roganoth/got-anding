@@ -4,13 +4,14 @@ module.exports = {
   create: function(req, res) {
     db.userTeam
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbuserTeam => res.json(dbuserTeam))
       .catch(err => res.status(422).json(err));
+    console.log("yoo");
   },
   update: function(req, res) {
     db.userTeam
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbuserTeam => res.json(dbuserTeam))
       .catch(err => res.status(422).json(err));
   },
   delete: function(req, res) {

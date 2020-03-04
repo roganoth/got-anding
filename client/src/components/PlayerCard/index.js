@@ -16,8 +16,6 @@ function PlayerCard(props) {
       <h1>{props.name}</h1>
       <h2>Order to Pick: {props.orderNumber}</h2>
       <p>{props.team.name}</p>
-      <h1>{props.name}</h1>
-      <h2>Order to Pick: {props.orderNumber}</h2>
       <ModalExample />
     </div>
   );
