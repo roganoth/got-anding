@@ -80,22 +80,21 @@ class Draft extends Component {
       let random = Math.floor(Math.random() * 10);
       this.state.playerValidation(teamPlayers[random]);
     },
-    
-    playerValidation: (selection) => {
-      console.log("validation")
+
+    playerValidation: selection => {
+      console.log("validation");
       if (selection.selected === false) {
         selection.selected = true;
-        console.log("before")
-        return true
-      }
-      else {
+        console.log("before");
+        return true;
+      } else {
         this.state.tryAgain();
       }
     },
 
-    userPrompt: () => { },
+    userPrompt: () => {},
 
-    teamMaker: (team) => {
+    teamMaker: team => {
       let teamPlayers = this.state.teamPlayers;
       let random = Math.floor(Math.random() * 10);
       // console.log(teamPlayers[random]);
@@ -106,7 +105,7 @@ class Draft extends Component {
           console.log(this.state.bobsTeam);
           break;
         case "Dave":
-          this.state.playerValidation(teamPlayers[random])
+          this.state.playerValidation(teamPlayers[random]);
           this.state.davesTeam.push(teamPlayers[random]);
           console.log(this.state.davesTeam);
           break;
@@ -136,13 +135,13 @@ class Draft extends Component {
       // }
     },
 
-    playerTeamJoin: (event) => {
+    playerTeamJoin: event => {
       // let userTeam = this.state.userTeam;
-      console.log(this.state.teamPlayers.slice(0, 10))
-      console.log(event.target)
-      console.log(event.target.id)
-      console.log(event.target.selected)
-      console.log(event.target.name)
+      console.log(this.state.teamPlayers.slice(0, 10));
+      console.log(event.target);
+      console.log(event.target.id);
+      console.log(event.target.selected);
+      console.log(event.target.name);
 
       // console.log(userTeam)
       // if (event.target.selected === false) {
@@ -176,29 +175,34 @@ class Draft extends Component {
 
   render() {
     return (
-      <Wrapper>
-        {this.state.playerOrder.map(order => (
-          <PlayerCard
-            key={order.playerNumber}
-            playerNumber={order.playerNumber}
-            orderNumber={order.orderNumber}
-            name={order.name}
-          />
-        ))}
+      <div>
+        <br></br>
         <ShuffleButton picker={this.state.picker} />
-        {this.state.teamPlayers.slice(0, 250).map(choices => (
-          <TempGrid
-            key={choices.name}
-            name={choices.name}
-            position={choices.position}
-            team={choices.team}
-            rank={choices.rank}
-            selected={choices.selected}
-            choose={this.state.playerTeamJoin}
-            id={choices._id}
-          />
-        ))}
-      </Wrapper>
+
+        <Wrapper>
+          {this.state.playerOrder.map(order => (
+            <PlayerCard
+              key={order.playerNumber}
+              playerNumber={order.playerNumber}
+              orderNumber={order.orderNumber}
+              name={order.name}
+            />
+          ))}
+
+          {this.state.teamPlayers.slice(0, 250).map(choices => (
+            <TempGrid
+              key={choices.name}
+              name={choices.name}
+              position={choices.position}
+              team={choices.team}
+              rank={choices.rank}
+              selected={choices.selected}
+              choose={this.state.playerTeamJoin}
+              id={choices._id}
+            />
+          ))}
+        </Wrapper>
+      </div>
     );
   }
 }

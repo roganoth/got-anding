@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import fire from "../../Fire";
 import Draft from "../pages/Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import ButtonAppBar from "../navbar/index";
 
 class Home extends Component {
@@ -10,7 +10,9 @@ class Home extends Component {
     return (
       <div>
         <ButtonAppBar />
-        <Draft />
+        <Col md={10}>
+          <Draft />
+        </Col>
       </div>
     );
   }
