@@ -4,6 +4,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import GroupedSelect from "../TeamSelect/index";
+import LogoutButton from "../pages/LogoutButton";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +30,9 @@ export default function ButtonAppBar() {
             NFL Mock Draft
           </Typography>
           <GroupedSelect color="inherit" />
+          <Button color="inherit">
+            <LogoutButton />
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

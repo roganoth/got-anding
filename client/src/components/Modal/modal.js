@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { ListGroup, ListGroupItem } from "reactstrap";
+import Button from "@material-ui/core/Button";
 
 const ModalExample = props => {
   const { className } = props;
@@ -11,7 +12,7 @@ const ModalExample = props => {
 
   return (
     <div>
-      <Button color="info" onClick={toggle}>
+      <Button variant="outlined" color="primary" onClick={toggle}>
         Team Players
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>

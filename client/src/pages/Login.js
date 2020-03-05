@@ -3,6 +3,8 @@ import fire from "../components/Firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import ButtonAppBar2 from "../navbar2/navbar2";
+// import ButtonAppBar from "../navbar";
 
 class Login extends Component {
   constructor(props) {
@@ -43,8 +45,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="col-md-6">
-        <Form>
+      <div>
+        <ButtonAppBar2 />
+        <br></br>
+        <Form className="col-md-6">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control

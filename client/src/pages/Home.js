@@ -8,6 +8,8 @@ import TeamSelect from "../components/TeamSelect/index";
 import data from "../teams.json";
 import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import headlineApi from "../utils/HeadlineCall";
+import { Col } from "react-bootstrap";
+import ButtonAppBar from "../navbar/index";
 
 class Home extends Component {
   constructor(props) {
@@ -64,24 +66,26 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Button color="inherit" onClick={this.logout}>
-          Logout
-        </Button>
-        <br></br>
-        <Dropdown
-          className="btn btn-primary float-right"
-          isOpen={this.state.dropdownOpen}
-          sz="lg"
-          toggle={this.toggle}
-        >
-          <DropdownToggle className="btn btn-primary">
-            Favorite Team
-          </DropdownToggle>
-          <DropdownMenu>{this.createDropDown()}</DropdownMenu>
-        </Dropdown>
+        <div>
+          <ButtonAppBar />
+        </div>
+        <div>
+          <br></br>
+          <Dropdown
+            className="btn btn-primary float-right"
+            isOpen={this.state.dropdownOpen}
+            sz="lg"
+            toggle={this.toggle}
+          >
+            <DropdownToggle className="btn btn-primary">
+              Favorite Team
+            </DropdownToggle>
+            <DropdownMenu>{this.createDropDown()}</DropdownMenu>
+          </Dropdown>
 
-        <Headlines currentHeadlines={this.state.headlines} />
-        <Draft />
+          <Headlines currentHeadlines={this.state.headlines} />
+          <Draft />
+        </div>
       </div>
     );
   }
