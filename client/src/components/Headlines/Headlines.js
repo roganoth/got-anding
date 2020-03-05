@@ -3,6 +3,13 @@ import { Col, Table } from "reactstrap";
 import "./style.css";
 
 function Headlines(props) {
+  const headlines = props.currentHeadlines;
+
+  const obj = headlines[0];
+  let title = "";
+  let link = "";
+  
+  
   return (
     <div className="headlines">
       {props.children}
@@ -14,7 +21,7 @@ function Headlines(props) {
             </tr>
           </thead>
           <tbody>
-            <td>Headline 1</td>
+            {createTableData(headlines)}
           </tbody>
         </Table>
       </Col>
@@ -22,4 +29,16 @@ function Headlines(props) {
   );
 }
 
+function createTableData(headlines){
+  let items = [];
+  let title,link = "";
+  for(let i =0 ;i<5;i++) {
+    if (null != headlines[i]) {
+      title = JSON.parse(headlines[i]).title;
+      link = JSON.parse(headlines[i]).url + JSON.parse(headlines[i]).link;
+    }
+    items.push(<tr><a href={link} target="_blank">{title}</a></tr>);
+  }
+  return items;
+}
 export default Headlines;
