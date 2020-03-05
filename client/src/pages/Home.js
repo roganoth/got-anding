@@ -1,11 +1,11 @@
 import React, { Component, useState } from "react";
-import fire from "../../Fire";
-import Draft from "../pages/Draft";
+import fire from "../components/Firebase";
+import Draft from "./Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-import Headlines from "../Headlines/Headlines";
-import TeamSelect from "../TeamSelect/index";
-import data from "../../teams.json";
+import Headlines from "../components/Headlines";
+import TeamSelect from "../components/TeamSelect/index";
+import data from "../teams.json";
 import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import headlineApi from "../utils/HeadlineCall";
 
@@ -36,7 +36,7 @@ class Home extends Component {
     headlineApi
       .getHeadlines(event.currentTarget.value)
       .then(res => {
-        this.setState({ headlines: res.map(JSON.stringify)});
+        this.setState({ headlines: res.map(JSON.stringify) });
       })
       .catch(err => console.log(err));
   };
