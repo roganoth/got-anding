@@ -12,5 +12,8 @@ export default {
   },
   deletePlayer: function(id) {
     return axios.delete("/api/players" + id);
+  },
+  deleteTeam: function() {
+    return axios.delete("/api/teams");
   }
 };

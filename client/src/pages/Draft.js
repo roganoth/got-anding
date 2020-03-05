@@ -142,13 +142,22 @@ class Draft extends Component {
 
   save = event => {
     event.preventDefault();
-    API.saveTeam({
-      name: this.state.userTeam.name,
-      position: this.state.userTeam.position,
-      team: this.state.userTeam.team,
-      rank: this.state.userTeam.rank
-    })
-      .then(res => console.log("team saved " + res))
+    this.deleteTeam();
+    this.state.userTeam.forEach(element => {
+      API.saveTeam({
+        name: element.name,
+        position: element.position,
+        team: element.team,
+        rank: element.rank
+      })
+        .then(res => console.log("team saved " + JSON.stringify(res)))
+        .catch(err => console.log(err));
+    });
+  };
+
+  deleteTeam = () => {
+    API.deleteTeam()
+      .then(res => console.log("team deleted"))
       .catch(err => console.log(err));
   };
 

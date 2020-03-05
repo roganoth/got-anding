@@ -1,8 +1,11 @@
 const db = require("../models");
 const axios = require("axios");
+require("dotenv").config();
+const keys = require("./../config/keys");
 
 module.exports = {
   findAll: function(req, res) {
+    console.log("findAll players hit");
     db.Players.find(req.query)
       .sort({ rank: 1 })
       .then(dbModel => res.json(dbModel))
