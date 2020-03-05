@@ -8,7 +8,7 @@ function ShuffleButton(props) {
       color="secondary"
       onClick={() => props.picker()}
     >
-      Let's Begin!
+      Launch Draft!
     </Button>
   );
 }
