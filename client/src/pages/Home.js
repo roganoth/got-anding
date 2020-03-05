@@ -3,9 +3,9 @@ import fire from "../components/Firebase";
 import Draft from "./Draft";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
-import Headlines from "../Headlines/Headlines";
-import TeamSelect from "../TeamSelect/index";
-import data from "../../teams.json";
+import Headlines from "../components/Headlines";
+import TeamSelect from "../components/TeamSelect/index";
+import data from "../teams.json";
 import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import headlineApi from "../utils/HeadlineCall";
 
