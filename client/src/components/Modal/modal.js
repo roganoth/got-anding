@@ -18,7 +18,7 @@ const ModalExample = props => {
         <ModalHeader toggle={toggle}>Modal TITLE</ModalHeader>
         <ModalBody>
           <ListGroup>
-            <ListGroupItem>Cras justo odio</ListGroupItem>
+            <ListGroupItem></ListGroupItem>
             <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
             <ListGroupItem>Morbi leo risus</ListGroupItem>
             <ListGroupItem>Porta ac consectetur ac</ListGroupItem>

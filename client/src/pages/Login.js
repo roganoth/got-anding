@@ -12,7 +12,7 @@ class Login extends Component {
     this.signup = this.signup.bind(this);
     this.state = {
       email: " ",
-      password: " "
+      password: ""
     };
   }
 

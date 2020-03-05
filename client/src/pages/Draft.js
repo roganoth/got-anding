@@ -60,7 +60,7 @@ class Draft extends Component {
     picker: () => {
       let players = this.state.players;
       let playerOrder = this.state.playerOrder;
-      // let teamPlayers = this.state.teamPlayers;
+      let teamPlayers = this.state.teamPlayers;
 
       for (let i = 0; i < players.length; i++) {
         let j = Math.floor(Math.random() * i + 1);
