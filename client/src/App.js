@@ -37,14 +37,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <div>
-          <Fragment>
-            <ButtonAppBar2 />
-          </Fragment>
-        </div>
-        <br></br>
         <div className="App">{this.state.user ? <Home /> : <Login />}</div>
-        <ModalExample />
       </Wrapper>
     );
   }
